@@ -24,10 +24,7 @@ class App(object):
         metadata_agent = self.__parse_from_agent()
 
         # Content of the app's local Info.plist
-        plist_info_path = Utils.escape_path('%s/Info.plist' % metadata_agent['binary_directory'], escape_accent=True)
-
-        print(plist_info_path)
-
+        plist_info_path = Utils.escape_path('%s/Info.plist' % metadata_agent['binary_directory'])
         plist_info = self._device.remote_op.parse_plist(plist_info_path)
         metadata_info = self.__parse_plist_info(plist_info)
 
